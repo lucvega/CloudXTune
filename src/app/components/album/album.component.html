@@ -1,0 +1,24 @@
+<section class="jumbotron gradient-bg text-center pt-3">
+  <div class="text-left pb-5">
+    <span class="text-left cursor-pointer" routerLink="/search">
+      < Back to search</span> </div> <div class="container">
+        <h1 class="jumbotron-heading" *ngIf="albumDescription">{{albumDescription?.collectionName}}</h1>
+        <h1 class="jumbotron-heading" *ngIf="!albumDescription">Search something to see the results :)</h1>
+        <h3> {{albumDescription?.artistName}} </h3>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row mb-5">
+    <div class="col-12 col-md-3">
+      <img src="{{albumDescription?.artworkUrl100}}" alt="{{albumDescription?.artistName}}" class="img-thumbnail">
+    </div>
+
+    <div class="col-12 col-md-9">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let song of songs"> {{song?.trackName}} </li>
+      </ul>
+    </div>
+  </div>
+</section>
+

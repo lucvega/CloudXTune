@@ -1,0 +1,31 @@
+<div class="container" *ngIf="!results">
+  <p>Search something to see the results :)</p>
+</div>
+
+<div class="container" *ngIf="results">
+  <p>Results for: {{searchKey}}</p>
+
+  <h3 class="border-bottom mb-3" *ngIf="filter" >{{filter | titlecase}}</h3>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let result of results | paginate: { itemsPerPage: 12, currentPage: p }">
+      <div class="card mb-4 shadow-sm">
+
+        <!-- Img for artist -->
+        <img class="card-img-top artist-img cursor-pointer" alt="{{result?.artistName}}" src="https://dummyimage.com/253x225/000/fff&text={{result?.artistName}}"
+          data-holder-rendered="true" *ngIf="filter == 'music Artist'">
+        <!-- Img for albums -->
+        <img class="card-img-top artist-img cursor-pointer" alt="{{result?.artistName}}" src="{{result?.artworkUrl100}}"
+          data-holder-rendered="true" *ngIf="filter == 'album'">
+
+        <div class="card-body">
+          <p class="text-primary cursor-pointer hover-underline" *ngIf="filter === 'music Artist'" [routerLink]="['/artist/', result?.artistId]">{{result?.artistName}}</p>
+          <p class="text-primary cursor-pointer hover-underline" *ngIf="filter === 'album'" [routerLink]="['/album/', result?.collectionId]">{{result?.collectionName}}</p>
+          <small class="text-secondary cursor-pointer hover-underline" *ngIf="filter === 'album'" [routerLink]="['/artist/', result?.artistId]">{{result?.artistName}}</small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <pagination-controls class="d-block text-center my-5 pb-5" (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,10 @@
+<section class="jumbotron gradient-bg text-center pt-3">
+  <div class="text-left pb-5">
+    <span class="text-left cursor-pointer" routerLink="/search">
+      < Back to search</span> </div> <div class="container">
+        <h1 class="jumbotron-heading">{{searchKey}}</h1>
+  </div>
+</section>
+
+
+<app-results [results]="albums" [searchKey]="searchKey" [filter]="filter"></app-results>
