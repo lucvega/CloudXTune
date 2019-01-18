@@ -1,8 +1,9 @@
 # Cloudxtune
 
+This is a frontend test for Cloudx.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
 
-## RUN PROJECT 
+## Run Project
 
 ```
 npm install
